@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positivus - Digital Marketing Agency</title>
+
+    <!-- Google Fonts: Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER / NAVBAR
+         Desktop: logo | links | CTA
+         Mobile:  logo (menor) | hambúrguer
+         ============================================================ -->
+    <header>
+        <nav class="container navbar">
+
+            <!-- Logo -->
+            <a href="#" class="logo">
+                <div class="logo-icon-container">
+                    <img src="img/Logo-icon.png" alt="Símbolo Positivus">
+                </div>
+                <span class="logo-text">Positivus</span>
+            </a>
+
+            <!-- Links desktop -->
+            <ul class="nav-links">
+                <li><a href="#about">About us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#use-cases">Use Cases</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#" class="btn-outline">Request a quote</a></li>
+            </ul>
+
+            <!-- ============================================================
+                 HAMBÚRGUER - visível só no mobile
+                 3 barras que animam para X ao abrir o menu
+                 ============================================================ -->
+            <button class="menu-icon" aria-label="Abrir menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+        </nav>
+
+        <!-- ============================================================
+             MENU MOBILE - slide down quando hambúrguer é clicado
+             Contém todos os links que existem no desktop
+             ============================================================ -->
+        <div class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#about"     onclick="toggleMenu()">About us</a></li>
+                <li><a href="#services"  onclick="toggleMenu()">Services</a></li>
+                <li><a href="#use-cases" onclick="toggleMenu()">Use Cases</a></li>
+                <li><a href="#pricing"   onclick="toggleMenu()">Pricing</a></li>
+                <li><a href="#blog"      onclick="toggleMenu()">Blog</a></li>
+                <li><a href="#"          onclick="toggleMenu()" class="btn-outline mobile-cta">Request a quote</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- ============================================================
+             HERO SECTION
+             Desktop: texto esquerda | imagem direita
+             Mobile:  título | imagem | parágrafo + botão (centralizados)
+             ============================================================ -->
+        <section class="hero">
+
+            <div class="hero-text">
+                <h1>Navigating the digital landscape for success</h1>
+            </div>
+
+            <!-- Imagem do megafone — visível em AMBOS desktop e mobile -->
+            <div class="hero-image-desktop">
+                <img src="img/MegafoneBG.png" alt="Ilustração Positivus Megafone">
+            </div>
+
+            <!-- Parágrafo e botão separados para controle de layout no mobile -->
+            <div class="hero-body">
+                <p>Our digital marketing agency helps businesses grow and succeed online through a range of services including SEO, PPC, social media marketing, and content creation.</p>
+                <a href="#" class="btn-black">Book a consultation</a>
+            </div>
+
+        </section>
+
+        <!-- ============================================================
+             LOGOS STRIP
+             Desktop: flex space-between estático
+             Mobile:  marquee infinito (CSS animation)
+             ============================================================ -->
+        <section class="logos-section">
+
+            <!-- Desktop: logos estáticas -->
+            <div class="logos-strip logos-desktop">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+                     alt="Amazon" class="brand-logo">
+                <img src="https://wp.logos-download.com/wp-content/uploads/2016/09/Dribbble_logo_black.png?dl"
+                     alt="Dribbble" class="brand-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg"
+                     alt="Hubspot" class="brand-logo">
+                <div class="brand-logo notion-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion ícone">
+                    <span class="notion-name">Notion</span>
+                </div>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+                     alt="Netflix" class="brand-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg"
+                     alt="Zoom" class="brand-logo">
+            </div>
+
+            <!-- ============================================================
+                 Mobile: esteira infinita (marquee)
+                 Duplica as logos para loop contínuo sem salto
+                 ============================================================ -->
+            <div class="logos-marquee logos-mobile">
+                <div class="marquee-track">
+                    <!-- Bloco 1 (original) -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"     alt="Amazon"  class="brand-logo">
+                    <img src="https://wp.logos-download.com/wp-content/uploads/2016/09/Dribbble_logo_black.png?dl" alt="Dribbble" class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg"    alt="Hubspot" class="brand-logo">
+                    <div class="brand-logo notion-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion ícone">
+                        <span class="notion-name">Notion</span>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="brand-logo">
+                    <!-- Bloco 2 (duplicata para loop sem salto visual) -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"     alt="Amazon"  class="brand-logo">
+                    <img src="https://wp.logos-download.com/wp-content/uploads/2016/09/Dribbble_logo_black.png?dl" alt="Dribbble" class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg"    alt="Hubspot" class="brand-logo">
+                    <div class="brand-logo notion-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg" alt="Notion ícone">
+                        <span class="notion-name">Notion</span>
+                    </div>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg" alt="Zoom" class="brand-logo">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ============================================================
+             SERVICES SECTION
+             ============================================================ -->
+        <section class="services" id="services">
+
+            <div class="section-header">
+                <h2 class="section-title">Services</h2>
+                <p class="section-desc">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card card-gray">
+                    <div class="card-content">
+                        <div class="card-title-box">
+                            <span class="title-highlight highlight-green">Search engine</span>
+                            <span class="title-highlight highlight-green">optimization</span>
+                        </div>
+                        <a href="#" class="learn-more">
+                            <div class="arrow-icon icon-black">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <span class="learn-text text-dark">Learn more</span>
+                        </a>
+                    </div>
+                    <img src="img/LupaIcon-branco.png" alt="SEO" class="card-img">
+                </div>
+
+                <div class="service-card card-green">
+                    <div class="card-content">
+                        <div class="card-title-box">
+                            <span class="title-highlight highlight-white">Pay-per-click</span>
+                            <span class="title-highlight highlight-white">advertising</span>
+                        </div>
+                        <a href="#" class="learn-more">
+                            <div class="arrow-icon icon-black">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <span class="learn-text text-dark">Learn more</span>
+                        </a>
+                    </div>
+                    <img src="img/SetaIcon-verde.png" alt="PPC" class="card-img">
+                </div>
+
+                <div class="service-card card-black">
+                    <div class="card-content">
+                        <div class="card-title-box">
+                            <span class="title-highlight highlight-white">Social Media</span>
+                            <span class="title-highlight highlight-white">Marketing</span>
+                        </div>
+                        <a href="#" class="learn-more">
+                            <div class="arrow-icon icon-white">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <span class="learn-text text-white">Learn more</span>
+                        </a>
+                    </div>
+                    <img src="img/EmojiIcon-preto.png" alt="Social Media" class="card-img">
+                </div>
+
+                <div class="service-card card-gray">
+                    <div class="card-content">
+                        <div class="card-title-box">
+                            <span class="title-highlight highlight-green">Email</span>
+                            <span class="title-highlight highlight-green">Marketing</span>
+                        </div>
+                        <a href="#" class="learn-more">
+                            <div class="arrow-icon icon-black">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <span class="learn-text text-dark">Learn more</span>
+                        </a>
+                    </div>
+                    <img src="img/CartaIcon-branco.png" alt="Email" class="card-img">
+                </div>
+
+                <div class="service-card card-green">
+                    <div class="card-content">
+                        <div class="card-title-box">
+                            <span class="title-highlight highlight-white">Content</span>
+                            <span class="title-highlight highlight-white">Creation</span>
+                        </div>
+                        <a href="#" class="learn-more">
+                            <div class="arrow-icon icon-black">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <span class="learn-text text-dark">Learn more</span>
+                        </a>
+                    </div>
+                    <img src="img/MsgIcon-verde.png" alt="Content Creation" class="card-img">
+                </div>
+
+                <div class="service-card card-black">
+                    <div class="card-content">
+                        <div class="card-title-box">
+                            <span class="title-highlight highlight-green">Analytics and</span>
+                            <span class="title-highlight highlight-green">Reporting</span>
+                        </div>
+                        <a href="#" class="learn-more">
+                            <div class="arrow-icon icon-white">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <span class="learn-text text-white">Learn more</span>
+                        </a>
+                    </div>
+                    <img src="img/EstaticsIcon-preto.png" alt="Analytics" class="card-img">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CTA BANNER 
+             ============================================================ -->
+        <section class="cta-banner">
+            <div class="cta-content">
+                <h3>Let's make things happen</h3>
+                <p>Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.</p>
+                <a href="#" class="btn-black">Get your free proposal</a>
+            </div>
+            <div class="cta-illustration">
+                <img src="img/HappenIcon.png" alt="Illustration">
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CASE STUDIES
+             ============================================================ -->
+        <section class="case-studies" id="use-cases">
+
+            <div class="section-header">
+                <h2 class="section-title">Case Studies</h2>
+                <p class="section-desc">Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies</p>
+            </div>
+
+            <div class="cases-black-box">
+                <div class="case-item">
+                    <p>For a local restaurant, we<br> implemented a targeted PPC<br> campaign that resulted in a 50%<br> increase in website traffic and a<br> 25% increase in sales.</p>
+                    <a href="#" class="case-link">Learn more
+                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="case-divider"></div>
+                <div class="case-item">
+                    <p>For a B2B software company, we<br> developed an SEO strategy that<br> resulted in a first page ranking<br> for key keywords and a 200%<br> increase in organic traffic.</p>
+                    <a href="#" class="case-link">Learn more
+                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+                <div class="case-divider"></div>
+                <div class="case-item">
+                    <p>For a national retail chain, we<br> created a social media<br> marketing campaign that<br> increased followers by 25% and<br> generated a 20% increase in<br> online sales.</p>
+                    <a href="#" class="case-link">Learn more
+                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none"><path d="M4.5 13.5L13.5 4.5M13.5 4.5H6.75M13.5 4.5V11.25" stroke="#B9FF66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         JAVASCRIPT - Menu hambúrguer mobile
+         toggleMenu(): abre/fecha o mobile-nav e anima o ícone
+         ============================================================ -->
+    <script>
+        function toggleMenu() {
+            const nav  = document.getElementById('mobileNav');
+            const icon = document.querySelector('.menu-icon');
+            nav.classList.toggle('open');
+            icon.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,777 @@
+/* ============================================================
+   POSITIVUS - Digital Marketing Agency
+   Stack: HTML + CSS + JS puro | Fonte: Space Grotesk | Base: 1440px
+   
+   ÍNDICE:
+     1.  Variáveis e Reset Global
+     2.  Container (layout base)
+     3.  Navbar - Desktop
+     4.  Menu Hambúrguer + Mobile Nav
+     5.  Hero Section (CSS Grid no desktop)
+     6.  Logos Strip (estático desktop / marquee mobile)
+     7.  Services Section
+     8.  CTA Banner ("Let's make things happen")
+     9.  Case Studies
+    10.  Breakpoint - Tablet largo  (max 1200px)
+    11.  Breakpoint - Tablet médio  (max 900px)  
+    12.  Breakpoint - Mobile        (max 768px)
+    13.  Breakpoint - Mobile pequeno(max 400px)  
+   ============================================================ */
+
+
+/* ============================================================
+   1. VARIÁVEIS E RESET GLOBAL
+   ============================================================ */
+:root {
+    --primary-green: #B9FF66;   /* Verde limão - destaque Figma */
+    --dark-bg:       #191A23;   /* Preto escuro - cor base */
+    --white:         #FFFFFF;
+    --gray-light:    #F3F3F3;   /* Cinza suave - fundo de cards */
+    --transition:    all 0.3s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--white);
+    color: var(--dark-bg);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+
+/* ============================================================
+   2. CONTAINER
+   ============================================================ */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 100px;
+}
+
+
+/* ============================================================
+   3. NAVBAR - DESKTOP
+   ============================================================ */
+header { padding: 30px 0; }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo: ícone PNG + texto "Positivus" em linha */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+}
+
+.logo-icon-container {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-icon-container img {
+    height: 58px;  /* Proporcional ao font-size do logo-text */
+    width: auto;
+    display: block;
+}
+
+.logo-text {
+    font-weight: 500;
+    font-size: 38.30px;
+    width: 170.62px;
+    height: 28.56px;
+    color: #191A23;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Links de navegação desktop */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav-links a:hover { color: var(--primary-green); }
+
+/* Botão "Request a quote" */
+.btn-outline {
+    border: 1px solid var(--dark-bg);
+    padding: 12px 25px;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-outline:hover {
+    background-color: var(--dark-bg);
+    color: var(--white) !important;
+}
+
+
+/* ============================================================
+   4. MENU HAMBÚRGUER + MOBILE NAV
+   ============================================================ */
+
+/* Hambúrguer — oculto no desktop */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+    flex-shrink: 0;
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--dark-bg);
+    border-radius: 2px;
+    transition: var(--transition);
+    transform-origin: center;
+}
+
+/* Animação das barras → X */
+.menu-icon.active span:nth-child(1) { transform: translateY(7px)  rotate(45deg);  }
+.menu-icon.active span:nth-child(2) { opacity: 0; transform: scaleX(0);           }
+.menu-icon.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Painel do menu mobile */
+.mobile-nav {
+    display: none;        /* Oculto no desktop */
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    background-color: var(--white);
+    border-top: 1px solid #eee;
+}
+
+.mobile-nav.open { max-height: 420px; }
+
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 24px;
+}
+
+.mobile-nav ul li a {
+    display: block;
+    padding: 14px 0;
+    font-size: 18px;
+    font-weight: 500;
+    border-bottom: 1px solid #f0f0f0;
+    color: var(--dark-bg);
+}
+
+.mobile-nav ul li:last-child a { border-bottom: none; }
+.mobile-nav ul li a:hover       { color: var(--primary-green); }
+
+.mobile-cta {
+    display: inline-block !important;
+    margin-top: 10px;
+    border: 1px solid var(--dark-bg) !important;
+    border-radius: 12px !important;
+    padding: 12px 20px !important;
+    text-align: center;
+    width: fit-content;
+}
+
+
+/* ============================================================
+   5. HERO SECTION - CSS GRID NO DESKTOP
+   ============================================================ */
+.hero {
+    display: grid;
+    grid-template-columns: 531px 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "text  image"
+        "body  image";
+    column-gap: 40px;
+    row-gap: 35px;
+    padding: 60px 0;
+}
+
+.hero-text  { grid-area: text; align-self: end; }
+.hero-body  { grid-area: body; align-self: start; display: flex; flex-direction: column; gap: 40px; }
+.hero-text h1 {
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.hero-body p {
+    font-size: 20px;
+    max-width: 500px;
+}
+
+/* Botão "Book a consultation" */
+.btn-black {
+    display: inline-block;
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 20px 35px;
+    border-radius: 14px;
+    font-size: 20px;
+    transition: var(--transition);
+    width: fit-content;
+}
+
+.btn-black:hover {
+    background-color: var(--primary-green);
+    color: var(--dark-bg);
+}
+
+/* ============================================================
+   IMAGEM DO MEGAFONE
+   ============================================================ */
+.hero-image-desktop {
+    grid-area: image;       /* Ocupa as 2 linhas da coluna direita */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hero-image-desktop img {
+    width: 100%;
+    max-width: 560px;       
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* ============================================================
+   6. LOGOS STRIP
+   ============================================================ */
+.logos-section { padding: 0 0 80px; }
+
+/* Desktop */
+.logos-desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0;
+}
+
+/* Mobile — oculto por padrão */
+.logos-mobile { display: none; }
+
+/* Estilo base de todas as logos */
+.brand-logo {
+    max-height: 35px;
+    width: auto;
+    filter: grayscale(100%);
+    flex-shrink: 0;
+}
+
+/* Amazon: contrast(150%) para texto ficar preto mantendo o sorriso cinza */
+.logos-desktop img[alt="Amazon"] { filter: grayscale(100%) contrast(150%); }
+
+/* Zoom: SVG intrinsecamente maior, reduzido para proporcionar com as outras */
+.logos-desktop img[alt="Zoom"]   { max-height: 24px; filter: grayscale(100%); }
+
+/* Notion: ícone + texto em linha */
+.notion-logo {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    max-height: 36px;
+    flex-shrink: 0;
+}
+
+.notion-logo img {
+    height: 36px;
+    width: auto;
+    display: block;
+    filter: grayscale(100%);
+}
+
+.notion-name {
+    font-size: 36px;
+    font-weight: 600;
+    color: #191A23;
+    line-height: 1;
+    letter-spacing: -0.3px;
+}
+
+/* Marquee - container com máscara de fade nas bordas */
+.logos-marquee {
+    overflow: hidden;
+    padding: 30px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    mask-image:         linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Faixa interna - duplicada no HTML para loop perfeito sem salto */
+.marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: max-content;
+    animation: marquee 18s linear infinite;
+}
+
+/* translateX(-50%) move exatamente 1 bloco (metade = 1 set de logos) */
+@keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-track .brand-logo      { max-height: 24px; filter: grayscale(100%); }
+.marquee-track .notion-logo     { max-height: 24px; }
+.marquee-track .notion-logo img { height: 22px; }
+.marquee-track .notion-name     { font-size: 22px; }
+.marquee-track img[alt="Amazon"]{ filter: grayscale(100%) contrast(150%); }
+.marquee-track img[alt="Zoom"]  { max-height: 16px !important; }
+
+
+/* ============================================================
+   7. SERVICES SECTION
+   ============================================================ */
+.services { padding: 80px 0; }
+
+/* Cabeçalho reutilizado em Services e Case Studies */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.section-title {
+    background-color: #B9FF66;
+    padding: 0 7px;
+    border-radius: 7px;
+    font-size: 40px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.section-desc { max-width: 580px; font-size: 18px; color: #000; }
+
+/* Grid 2 colunas desktop */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+}
+
+/* Card base */
+.service-card {
+    border: 1px solid #191A23;
+    border-bottom: 6px solid #191A23; /* Sombra sólida característica do Figma */
+    border-radius: 45px;
+    padding: 50px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    min-height: 310px;
+    transition: transform 0.2s ease;
+}
+
+.service-card:hover { transform: translateY(-5px); }
+
+.card-gray  { background-color: #F3F3F3; }
+.card-green { background-color: #B9FF66; }
+.card-black { background-color: #191A23; }
+
+/* Conteúdo textual - 60% da largura para deixar espaço ao ícone */
+.card-content {
+    position: relative;
+    z-index: 2;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+/* Reativa cliques nos filhos interativos */
+.card-title-box, .learn-more { pointer-events: auto; }
+
+.card-title-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 90px;
+}
+
+.title-highlight {
+    font-size: 30px;
+    font-weight: 500;
+    padding: 0 5px;
+    border-radius: 7px;
+    display: inline-block;
+    width: fit-content;
+}
+
+.highlight-green { background-color: #B9FF66; }
+.highlight-white { background-color: #FFFFFF; }
+
+.learn-more {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+/* Círculo ao redor da seta - gira 45° no hover */
+.arrow-icon {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.arrow-icon svg      { width: 30px; height: 30px; }
+.arrow-icon svg path { stroke-width: 2.5; }
+
+.service-card:hover .arrow-icon { transform: rotate(45deg); }
+
+.icon-black { background-color: #191A23; }
+.icon-white { background-color: #FFFFFF; }
+
+.learn-text { font-size: 20px; }
+.text-dark  { color: #000; }
+.text-white { color: #fff; }
+
+/* Ícone do card: absoluto, centralizado verticalmente à direita */
+.card-img {
+    width: 210px;
+    height: auto;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+/* Cor do highlight no card preto */
+.service-card.card-black .title-highlight.highlight-green {
+    background-color: #B9FF66;
+    color: #000;
+}
+
+
+/* ============================================================
+   8. CTA BANNER - "Let's make things happen"
+   ============================================================ */
+.cta-banner {
+    background-color: #F3F3F3;
+    border-radius: 45px;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: visible;          /* Permite o vazamento da ilustração */
+    min-height: 350px;
+    margin-top: 60px;
+    margin-bottom: 170px;       /* Espaço para a ilustração que vaza para baixo */
+}
+
+.cta-content {
+    max-width: 480px;
+    z-index: 2;
+    position: relative;
+}
+
+.cta-content h3    { font-size: 30px; font-weight: 700; margin-bottom: 20px; }
+.cta-content p     { font-size: 18px; line-height: 1.4; margin-bottom: 35px; }
+.cta-banner .btn-black { font-size: 18px; }
+
+/* Ilustração posicionada à direita, vazando fora do card */
+.cta-illustration {
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+.cta-illustration img {
+    width: 500px;
+    height: auto;
+    display: block;
+}
+
+
+/* ============================================================
+   9. CASE STUDIES
+   ============================================================*/
+.case-studies { padding-bottom: 100px; }
+
+.case-studies .section-header { margin-bottom: 60px; }
+
+.cases-black-box {
+    background-color: #191A23;
+    border-radius: 45px;
+    padding: 70px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.case-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.case-item p   { color: #FFFFFF; font-size: 18px; line-height: 1.5; }
+
+.case-link {
+    color: #B9FF66;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.case-link svg { width: 35px; height: 35px; transition: transform 0.3s ease; }
+.case-link:hover svg { transform: translate(3px, -3px); }
+
+/* Divisor vertical branco */
+.case-divider {
+    width: 1px;
+    height: 180px;
+    background-color: #FFFFFF;
+    flex-shrink: 0;
+}
+
+
+/* ============================================================
+   10. BREAKPOINT - TABLET LARGO (max 1200px)
+   ============================================================ */
+@media (max-width: 1200px) {
+
+    .container { padding: 0 40px; }
+
+    /* Hero: reduz coluna de texto */
+    .hero { grid-template-columns: 440px 1fr; }
+
+    .hero-text h1  { font-size: 52px; }
+    .hero-body p   { font-size: 18px; }
+
+    /* Logos */
+    .notion-name     { font-size: 26px; }
+    .notion-logo img { height: 26px; }
+    .brand-logo      { max-height: 28px; }
+
+    /* CTA: reduz ilustração para não vazar demais */
+    .cta-illustration img { width: 380px; }
+}
+
+
+/* ============================================================
+   11. BREAKPOINT - TABLET MÉDIO (max 900px)
+   ============================================================*/
+@media (max-width: 900px) {
+
+    .container { padding: 0 32px; }
+
+    /* Hero: troca grid por flex-column */
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 0;
+        gap: 28px;
+    }
+
+    .hero-text          { order: 1; width: 100%; }
+    .hero-image-desktop { order: 2; width: 100%; justify-content: center; }
+    .hero-body          { order: 3; width: 100%; align-items: center; }
+
+    .hero-text h1 { font-size: 44px; }
+
+    .hero-image-desktop img { max-width: 380px; }
+
+    .hero-body p { font-size: 17px; max-width: 520px; text-align: center; }
+
+    /* Ativa hambúrguer e painel mobile */
+    .nav-links  { display: none; }
+    .menu-icon  { display: flex; }
+    .mobile-nav { display: block; }
+
+    /* Navbar: logo menor */
+    .logo-icon-container img { height: 40px; }
+    .logo-text { font-size: 28px; width: auto; height: auto; }
+
+    /* Logos: passa para marquee */
+    .logos-desktop { display: none; }
+    .logos-mobile  { display: block; }
+
+    /* Services: 1 coluna */
+    .services-grid { grid-template-columns: 1fr; gap: 20px; }
+
+    .section-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 40px; }
+
+    /* Cards: ícone some para evitar sobreposição com texto */
+    .service-card {
+        min-height: 180px;
+        padding: 40px;
+    }
+
+    /* Card content ocupa 100% sem ícone brigando */
+    .card-content { width: 100%; }
+
+    /* Ícone do card: oculto neste breakpoint */
+    .card-img { display: none; }
+
+    .card-title-box { margin-bottom: 28px; }
+    .title-highlight { font-size: 26px; }
+
+    /* CTA: sem ilustração, sem overflow */
+    .cta-banner {
+        overflow: hidden;
+        margin-bottom: 80px;
+        min-height: auto;
+    }
+
+    .cta-illustration { display: none; }
+
+    .cta-content { max-width: 100%; }
+
+    /* Case Studies */
+    .cases-black-box { flex-direction: column; padding: 40px 30px; gap: 24px; }
+    .case-divider    { width: 100%; height: 1px; }
+}
+
+
+/* ============================================================
+   12. BREAKPOINT - MOBILE (max 768px)
+   ============================================================
+   Layout mobile completo com hambúrguer, marquee e hero empilhado.
+   ============================================================ */
+@media (max-width: 768px) {
+
+    .container { padding: 0 20px; }
+
+    header { padding: 16px 0; }
+
+    /* Logo ainda menor */
+    .logo-icon-container img { height: 34px; }
+    .logo-text { font-size: 22px; }
+
+    /* Hero */
+    .hero { padding: 28px 0; gap: 22px; }
+
+    .hero-text h1           { font-size: 36px; }
+    .hero-image-desktop img { max-width: 280px; }
+    .hero-body p            { font-size: 16px; }
+
+    .btn-black { font-size: 16px; padding: 16px 28px; }
+
+    /* Services */
+    .services  { padding: 40px 0; }
+    .section-title { font-size: 28px; }
+    .section-desc  { font-size: 15px; }
+
+    .service-card    { padding: 32px; min-height: 160px; }
+    .title-highlight { font-size: 22px; }
+    .learn-text      { font-size: 15px; }
+
+    .arrow-icon      { width: 34px; height: 34px; }
+    .arrow-icon svg  { width: 22px; height: 22px; }
+
+    /* CTA */
+    .cta-banner {
+        padding: 36px 24px;
+        border-radius: 30px;
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+
+    .cta-content h3 { font-size: 22px; }
+    .cta-content p  { font-size: 15px; }
+
+    .cta-banner .btn-black { width: 100%; text-align: center; display: block; }
+
+    /* Case Studies */
+    .case-studies          { padding-bottom: 60px; }
+    .cases-black-box       { padding: 32px 20px; border-radius: 28px; }
+    .case-item p           { font-size: 15px; }
+    .case-link             { font-size: 15px; }
+    .case-link svg         { width: 22px; height: 22px; }
+}
+
+
+/* ============================================================
+   13. BREAKPOINT - MOBILE PEQUENO (
+   ============================================================ */
+@media (max-width: 400px) {
+
+    .container { padding: 0 16px; }
+
+    /* Navbar */
+    .logo-icon-container img { height: 28px; }
+    .logo-text               { font-size: 19px; }
+
+    /* Hero */
+    .hero-text h1           { font-size: 30px; }
+    .hero-image-desktop img { max-width: 220px; }
+    .hero-body p            { font-size: 15px; }
+
+    .btn-black { font-size: 15px; padding: 14px 22px; }
+
+    /* Marquee mais lento para telas pequenas */
+    .marquee-track { animation-duration: 22s; gap: 36px; }
+
+    /* Services */
+    .section-title { font-size: 24px; }
+
+    .service-card {
+        padding: 28px 24px;
+        min-height: 140px;
+        border-radius: 30px;
+    }
+
+    .card-title-box  { margin-bottom: 20px; }
+    .title-highlight { font-size: 20px; }
+    .learn-text      { font-size: 14px; }
+
+    .arrow-icon     { width: 30px; height: 30px; }
+    .arrow-icon svg { width: 18px; height: 18px; }
+
+    /* CTA */
+    .cta-banner { padding: 28px 20px; border-radius: 24px; }
+    .cta-content h3 { font-size: 20px; }
+    .cta-content p  { font-size: 14px; }
+
+    /* Case Studies */
+    .cases-black-box { padding: 28px 16px; }
+    .case-item p     { font-size: 14px; }
+    .case-link       { font-size: 14px; }
+}
