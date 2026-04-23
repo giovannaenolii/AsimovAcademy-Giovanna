@@ -1,0 +1,61 @@
+{
+  "name": "asimov-hero-section",
+  "version": "1.0.0",
+  "description": "Hero Section de nível Awwwards para Asimov Academy - Roxo/Preto/Verde com Three.js 3D",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx",
+    "format": "prettier --write src/**/*.{js,jsx,css}"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@react-three/postprocessing": "^2.19.1",
+    "framer-motion": "^12.38.0",
+    "postprocessing": "^6.39.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.5.0",
+    "eslint": "^8.55.0",
+    "eslint-config-react-app": "^7.0.0",
+    "postcss": "^8.5.10",
+    "prettier": "^3.1.0",
+    "tailwindcss": "^3.4.19",
+    "vite": "^5.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "hero-section",
+    "three.js",
+    "react",
+    "awwwards",
+    "3d",
+    "animation",
+    "python-course",
+    "asimov-academy"
+  ],
+  "author": "Claude (Anthropic)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/asimov-hero-section"
+  }
+}
