@@ -529,6 +529,7 @@ header {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 35px;
+    max-width: 500px;   
 }
 
 .cta-illustration {
@@ -801,198 +802,77 @@ header {
 }
 
 /* ============================================================
-   BREAKPOINT - MOBILE (max 768px)
+   BREAKPOINT - MOBILE (max 768px) - SERVICE CARDS
    ============================================================ */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 20px;
-    }
-
-    header {
-        padding: 16px 0;
-    }
-
-    .logo-icon-container img {
-        height: 32px;
-    }
-
-    .logo-text {
-        font-size: 20px;
-    }
-
-    /* HERO */
-    .hero {
-        padding: 28px 0;
-        gap: 20px;
-    }
-
-    .hero-text h1 {
-        font-size: 32px;
-    }
-
-    .hero-image-desktop img {
-        max-width: 250px;
-    }
-
-    .hero-body p {
-        font-size: 15px;
-    }
-
-    .btn-black {
-        font-size: 16px;
-        padding: 16px 28px;
-    }
-
-    /* LOGOS */
-    .logos-section {
-        padding: 40px 0;
-    }
-
-    .marquee-track {
-        gap: 40px;
-    }
-
-    /* SERVICES */
-    .services {
-        padding: 40px 0;
-    }
-
-    .section-title {
-        font-size: 24px;
-    }
-
-    .section-desc {
-        font-size: 14px;
-    }
-
-    /* ===== CARDS MOBILE - LAYOUT VERTICAL ===== */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
 
     .service-card {
-        min-height: auto;
+        min-height: 200px;
         padding: 28px 24px;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        gap: 20px;
-        overflow: visible;
+        flex-direction: row;          
+        align-items: stretch;
+        justify-content: space-between;
+        gap: 16px;
+        overflow: hidden;
     }
 
     .card-content {
-        width: 100%;
-        min-height: auto;
+        width: 55%;
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;  
     }
 
     .card-title-box {
-        width: 100%;
+        flex-direction: column;      
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 4px;
         margin-bottom: 0;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
     .title-highlight {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 500;
         display: inline-block;
     }
 
-    .learn-more {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
+    /* Mostra o texto "Learn more" */
+    .learn-text {
+        font-size: 16px !important;
+        display: inline !important;
+        visibility: visible !important;
     }
 
-    .learn-text {
-        font-size: 0;
-        display: none;
-        visibility: hidden;
+    .learn-more {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: auto;
     }
 
     .arrow-icon {
-        width: 32px;
-        height: 32px;
+        width: 34px;
+        height: 34px;
+        flex-shrink: 0;
     }
 
     .arrow-icon svg {
-        width: 16px;
-        height: 16px;
-    }
-
-    /* IMAGEM - EMBAIXO E VISÍVEL */
-    .card-img {
-        position: static !important;
-        transform: none !important;
-        right: auto !important;
-        top: auto !important;
-        width: 100%;
-        max-width: 160px;
-        height: auto;
-        display: block !important;
-        visibility: visible !important;
-        object-fit: contain;
-    }
-
-    /* CTA */
-    .cta-banner {
-        padding: 36px 24px;
-        margin: 40px 0 70px;
-        border-radius: 28px;
-        text-align: center;
-    }
-
-    .cta-content {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cta-content h3 {
-        font-size: 22px;
-    }
-
-    .cta-content p {
-        font-size: 15px;
-    }
-
-    .cta-content .btn-black {
-        width: fit-content;
-        margin: 0 auto;
-    }
-
-    .cta-illustration img {
-        max-width: 200px;
-    }
-
-    /* CASE STUDIES */
-    .case-studies {
-        padding-bottom: 60px;
-    }
-
-    .cases-black-box {
-        padding: 32px 20px;
-        border-radius: 28px;
-    }
-
-    .case-item p {
-        font-size: 14px;
-    }
-
-    .case-link {
-        font-size: 14px;
-    }
-
-    .case-link svg {
         width: 20px;
         height: 20px;
+    }
+
+    .card-img {
+        position: absolute !important;
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        width: 38% !important;
+        max-width: 150px !important;
+        height: auto;
+        object-fit: contain;
     }
 }
 
@@ -1000,56 +880,25 @@ header {
    BREAKPOINT - MOBILE PEQUENO (max 480px)
    ============================================================ */
 @media (max-width: 480px) {
-    .container {
-        padding: 0 16px;
-    }
-
-    .logo-icon-container img {
-        height: 28px;
-    }
-
-    .logo-text {
-        font-size: 18px;
-    }
-
-    .hero-text h1 {
-        font-size: 28px;
-    }
-
-    .hero-image-desktop img {
-        max-width: 200px;
-    }
-
-    .section-title {
-        font-size: 20px;
-    }
-
-    .section-desc {
-        font-size: 13px;
-    }
 
     .service-card {
-        padding: 20px 16px;
-        border-radius: 24px;
+        padding: 22px 18px;
+        min-height: 180px;
     }
 
-    .card-title-box {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
+    .card-content {
+        width: 55%;
+        min-height: 130px;
     }
 
     .title-highlight {
-        font-size: 16px;
+        font-size: 17px;
     }
 
-    .learn-more {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
+    .learn-text {
+        font-size: 14px !important;
+        display: inline !important;
+        visibility: visible !important;
     }
 
     .arrow-icon {
@@ -1057,50 +906,14 @@ header {
         height: 28px;
     }
 
+    .arrow-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
     .card-img {
-        max-width: 140px;
-    }
-
-    .btn-black {
-        font-size: 14px;
-        padding: 12px 20px;
-    }
-
-    .cta-banner {
-        padding: 28px 16px;
-        margin: 30px 0 60px;
-        text-align: center;
-    }
-
-    .cta-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cta-content h3 {
-        font-size: 20px;
-    }
-
-    .cta-content p {
-        font-size: 13px;
-    }
-
-    .cta-content .btn-black {
-        width: fit-content;
-        margin: 0 auto;
-    }
-
-    .cta-illustration img {
-        max-width: 140px;
-    }
-
-    .cases-black-box {
-        padding: 24px 16px;
-    }
-
-    .case-item p {
-        font-size: 13px;
-        line-height: 1.5;
+        right: 14px !important;
+        width: 36% !important;
+        max-width: 130px !important;
     }
 }
